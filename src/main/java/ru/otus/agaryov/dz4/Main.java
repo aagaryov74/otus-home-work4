@@ -14,7 +14,6 @@ import java.util.Properties;
 
 @SpringBootApplication
 @PropertySource("application.yaml")
-@PropertySource("messages.yaml")
 public class Main {
 /*
 
@@ -42,8 +41,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(Main.class, args);
-        ExamExecutor executor = context.getBean(ExamExecutor.class);
-        executor.doExam();
+        //ApplicationContext context =
+                SpringApplication.run(Main.class, args);
+        //ExamExecutor executor = context.getBean(ExamExecutor.class);
+        //executor.doExam();
     }
 }
