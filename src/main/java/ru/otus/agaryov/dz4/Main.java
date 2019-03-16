@@ -3,12 +3,11 @@ package ru.otus.agaryov.dz4;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
-import ru.otus.agaryov.dz4.exam.ExamExecutor;
 
 import java.util.Properties;
 
@@ -22,6 +21,13 @@ public class Main {
         return new PropertySourcesPlaceholderConfigurer();
     }
 */
+
+    public static void main(String[] args) {
+        //ApplicationContext context =
+        SpringApplication.run(Main.class, args);
+        //ExamExecutor executor = context.getBean(ExamExecutor.class);
+        //executor.doExam();
+    }
 
     @Bean(name = "quizProperties")
     public Properties yamlProperties() {
@@ -38,12 +44,5 @@ public class Main {
         ms.setBasename("messages/messages");
         ms.setDefaultEncoding("UTF-8");
         return ms;
-    }
-
-    public static void main(String[] args) {
-        //ApplicationContext context =
-                SpringApplication.run(Main.class, args);
-        //ExamExecutor executor = context.getBean(ExamExecutor.class);
-        //executor.doExam();
     }
 }

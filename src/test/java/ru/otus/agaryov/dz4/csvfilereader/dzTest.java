@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.otus.agaryov.dz4.exam.ExamExecutor;
+import ru.otus.agaryov.dz4.exam.ExamOptionsChecker;
 import ru.otus.agaryov.dz4.results.ImplResultChecker;
 import ru.otus.agaryov.dz4.results.ResultChecker;
 import ru.otus.agaryov.dz4.service.AsciiCheckerService;
@@ -29,29 +30,30 @@ import static org.mockito.Mockito.*;
 @TestPropertySource(locations = "/test.yaml")
 public class dzTest {
 
-    @Qualifier("AsciiChecker")
     @Autowired
-    private AsciiCheckerService testAsciiChecker;
-
+    Config.MapConfig mapConfig;
     @Qualifier("ruCSVFileReader")
     @Autowired
     private CsvFileReader ruReader;
-
     @Qualifier("ruCSVFileReader")
     @Autowired
     private CsvFileReader enReader;
-
-    @Autowired
-    Config.MapConfig mapConfig;
     @Autowired
     private ApplicationContext applicationContext;
-/*
-    @Autowired
-    private ResultChecker resultChecker;
 
-    @Autowired
-    private ExamExecutor examExecutor;
-*/
+    @SpyBean
+    private AsciiCheckerService testAsciiChecker;
+
+    @SpyBean
+    private ExamOptionsChecker examOptionsChecker;
+
+    /*
+        @Autowired
+        private ResultChecker resultChecker;
+
+        @Autowired
+        private ExamExecutor examExecutor;
+    */
     @Test
     public void testContext() {
         Assert.assertNotNull(applicationContext.getBean("ruCSVFileReader"));
@@ -63,7 +65,6 @@ public class dzTest {
     public void testAscii() {
         Assert.assertFalse(testAsciiChecker.isASCII("Привет"));
         Assert.assertTrue(testAsciiChecker.isASCII("this is ascii only"));
-
     }
 
     @Test
@@ -74,6 +75,13 @@ public class dzTest {
         Assert.assertEquals(mapConfig.getMapByLang("ru").size(), 3);
         Assert.assertEquals(mapConfig.getMapByLang("en").size(), 3);
 
+    }
+
+    @Test
+    public void testExamChecker() {
+        Assert.assertTrue(examOptionsChecker.isLangOk("ru"));
+        Assert.assertTrue(examOptionsChecker.isLangOk("en"));
+        Assert.assertFalse(examOptionsChecker.isLangOk("uy"));
     }
 
     @Test
@@ -102,7 +110,7 @@ public class dzTest {
         // Прокладка
         ResultChecker sChecker;
 
-        for (String lang: mapConfig.getLanguages()) {
+        for (String lang : mapConfig.getLanguages()) {
             CsvFileReader reader =
                     mock(ImplCsvFileReader.class);
             // Не написали еще чтение из файла в мапу, но уже хотим проверить, как ответопроверятель работает
@@ -124,7 +132,7 @@ public class dzTest {
 
             Assert.assertEquals(3, res);
 
-            if(lang.contentEquals("en")) {
+            if (lang.contentEquals("en")) {
                 verify(sChecker, times(1)).
                         checkAnswer("How many legs does elephant have", "4");
             }

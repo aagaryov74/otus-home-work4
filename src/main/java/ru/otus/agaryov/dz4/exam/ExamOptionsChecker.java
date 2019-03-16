@@ -15,7 +15,7 @@ public class ExamOptionsChecker {
     private final AsciiCheckerService asciiCheckerService;
 
     @Value("${config.messages}")
-            private String messagesFile;
+    private String messagesFile;
 
     @Value("${config.csvfile}")
     private String csvfile;
@@ -24,11 +24,11 @@ public class ExamOptionsChecker {
         this.asciiCheckerService = asciiCheckerService;
     }
 
-    Boolean isAscii(String name) {
+    public Boolean isAscii(String name) {
         return asciiCheckerService.isASCII(name);
     }
 
-    Boolean isLangOk(String language) {
+    public Boolean isLangOk(String language) {
         try {
             Yaml yaml = new Yaml();
             InputStream inputStream = this.getClass()
@@ -36,7 +36,7 @@ public class ExamOptionsChecker {
                     .getResourceAsStream(messagesFile);
             Map<String, Map<String, String>> maps = yaml.load(inputStream);
             if (maps.get(language.toLowerCase()).size() > 0) {
-                File qFile = new File(csvfile+"_"+language+".csv");
+                File qFile = new File(csvfile + "_" + language + ".csv");
                 if (qFile.canRead()) {
                     Locale locale = new Locale.Builder().
                             setLanguage(language.toLowerCase()).

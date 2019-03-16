@@ -12,7 +12,7 @@ import java.util.Locale;
 import static java.lang.System.out;
 
 @Service
-public class ImplIOService implements  IOService {
+public class ImplIOService implements IOService {
     private final MessageSource messageSource;
     private Locale locale;
     private BufferedReader bufferedReader;
@@ -22,25 +22,29 @@ public class ImplIOService implements  IOService {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         locale = Locale.getDefault();
     }
+
     @Override
     public void printToConsole(String propertyParam) {
         out.println(messageSource.getMessage(locale.getLanguage() +
-                "." + propertyParam,null,locale));
+                "." + propertyParam, null, locale));
 
     }
+
     @Override
-    public void printFToConsole(String propertyParam, Object ... args) {
+    public void printFToConsole(String propertyParam, Object... args) {
         out.printf(messageSource.getMessage(locale.getLanguage() +
-                "." + propertyParam,null,locale),args);
+                "." + propertyParam, null, locale), args);
     }
+
     @Override
     public String readFromConsole() throws IOException {
         return bufferedReader.readLine();
     }
 
     public String getMessage(String propertyParam) {
-        return messageSource.getMessage(propertyParam,null,locale);
+        return messageSource.getMessage(propertyParam, null, locale);
     }
+
     @Override
     public String getLocaleLang() {
         return locale.getLanguage();
@@ -56,7 +60,7 @@ public class ImplIOService implements  IOService {
     }
 
     @Override
-    public String getLanguage(String prompt) throws IOException{
+    public String getLanguage(String prompt) throws IOException {
         String lang;
         do {
             printToConsole(prompt);

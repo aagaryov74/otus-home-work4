@@ -10,7 +10,6 @@ import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
 import ru.otus.agaryov.dz4.csvfilereader.CsvFileReader;
 import ru.otus.agaryov.dz4.results.ResultChecker;
-import ru.otus.agaryov.dz4.service.AsciiCheckerService;
 import ru.otus.agaryov.dz4.service.IOService;
 
 import java.io.IOException;
@@ -32,7 +31,7 @@ public class ExamExecutor {
     public ExamExecutor(@Qualifier("implCsvFileReader") CsvFileReader csvFileReader,
                         ResultChecker resultChecker,
                         IOService ioService,
-                        AsciiCheckerService asciiCheckerService, ExamOptionsChecker examOptionsChecker) {
+                        ExamOptionsChecker examOptionsChecker) {
         this.csvFile = csvFileReader;
         this.checker = resultChecker;
         this.ioService = ioService;

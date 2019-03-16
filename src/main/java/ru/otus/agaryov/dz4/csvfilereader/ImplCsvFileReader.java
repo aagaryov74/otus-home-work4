@@ -25,7 +25,7 @@ public class ImplCsvFileReader implements CsvFileReader {
         this.readStrCounter = 0;
         this.csvFile = csvFile + "_" +
                 java.util.Locale.getDefault().getLanguage() + ".csv";
-        logger.info("csvfile is {}",this.csvFile);
+        logger.info("csvfile is {}", this.csvFile);
     }
 
     public ImplCsvFileReader(@Value("${config.csvfile}") String csvFile,
@@ -33,20 +33,20 @@ public class ImplCsvFileReader implements CsvFileReader {
         this.readStrCounter = 0;
         this.csvFile = csvFile + "_" +
                 localeLanguage + ".csv";
-        logger.info("csvfile is {}",this.csvFile);
+        logger.info("csvfile is {}", this.csvFile);
     }
 
     @Override
-    public Map<String,String> readCsvIntoMap() {
+    public Map<String, String> readCsvIntoMap() {
         CSVReader reader;
-        this.readStrCounter=0;
-        Map<String,String> qaMap = new LinkedHashMap<>();
+        this.readStrCounter = 0;
+        Map<String, String> qaMap = new LinkedHashMap<>();
         try {
             reader = new CSVReader(new FileReader(this.csvFile));
             String[] line;
             while ((line = reader.readNext()) != null) {
-                    qaMap.put(line[0], line[1]);
-                    this.readStrCounter++;
+                qaMap.put(line[0], line[1]);
+                this.readStrCounter++;
             }
         } catch (IOException | ArrayIndexOutOfBoundsException e) {
             System.err.println("Error at reading config file  " + csvFile + ": "
@@ -57,7 +57,7 @@ public class ImplCsvFileReader implements CsvFileReader {
     }
 
     @Override
-    public Map<String,String> setCsvFile(String fileName) {
+    public Map<String, String> setCsvFile(String fileName) {
         this.csvFile = fileName;
         return readCsvIntoMap();
     }

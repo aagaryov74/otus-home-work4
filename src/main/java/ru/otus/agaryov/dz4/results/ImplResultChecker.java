@@ -13,7 +13,7 @@ public class ImplResultChecker implements ResultChecker {
     private Map<String, String> qaMap;
 
     @Autowired
-    public ImplResultChecker(@Qualifier("implCsvFileReader") CsvFileReader csvFileReader){
+    public ImplResultChecker(@Qualifier("implCsvFileReader") CsvFileReader csvFileReader) {
         this.result = 0;
         if (csvFileReader != null) this.qaMap = csvFileReader.readCsvIntoMap();
     }
