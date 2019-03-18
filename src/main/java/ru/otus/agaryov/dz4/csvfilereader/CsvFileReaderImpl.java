@@ -25,22 +25,13 @@ public class CsvFileReaderImpl implements CsvFileReader {
         this.readStrCounter = 0;
         this.csvFile = csvFile + "_" +
                 java.util.Locale.getDefault().getLanguage() + ".csv";
-        logger.info("csvfile is {}", this.csvFile);
-    }
-
-    public CsvFileReaderImpl(@Value("${config.csvfile}") String csvFile,
-                             String localeLanguage) {
-        this.readStrCounter = 0;
-        this.csvFile = csvFile + "_" +
-                localeLanguage + ".csv";
-        logger.info("csvfile is {}", this.csvFile);
     }
 
     @Override
-    public Map<String, String> readCsvIntoMap() {
+    public Map<String,String> readCsvIntoMap() {
         CSVReader reader;
-        this.readStrCounter = 0;
-        Map<String, String> qaMap = new LinkedHashMap<>();
+        this.readStrCounter=0;
+        Map<String,String> qaMap = new LinkedHashMap<>();
         try {
             reader = new CSVReader(new FileReader(this.csvFile));
             String[] line;
@@ -57,9 +48,8 @@ public class CsvFileReaderImpl implements CsvFileReader {
     }
 
     @Override
-    public Map<String, String> setCsvFile(String fileName) {
+    public void setCsvFile(String fileName) {
         this.csvFile = fileName;
-        return readCsvIntoMap();
     }
 
     @Override
@@ -68,3 +58,4 @@ public class CsvFileReaderImpl implements CsvFileReader {
     }
 
 }
+
