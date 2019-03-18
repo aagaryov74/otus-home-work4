@@ -5,28 +5,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 
 import java.util.Properties;
 
 @SpringBootApplication
-@PropertySource("application.yaml")
+//@PropertySource("application.yaml")
 public class Main {
-/*
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
-*/
 
     public static void main(String[] args) {
-        //ApplicationContext context =
         SpringApplication.run(Main.class, args);
-        //ExamExecutor executor = context.getBean(ExamExecutor.class);
-        //executor.doExam();
     }
 
     @Bean(name = "quizProperties")
@@ -41,7 +30,7 @@ public class Main {
         ReloadableResourceBundleMessageSource ms
                 = new ReloadableResourceBundleMessageSource();
         ms.setCommonMessages(yamlProperties());
-        ms.setBasename("messages/messages");
+        ms.setBasename("messages");
         ms.setDefaultEncoding("UTF-8");
         return ms;
     }
