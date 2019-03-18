@@ -16,8 +16,9 @@ public class IOServiceImpl implements  IOService {
     private final MessageSource messageSource;
     private Locale locale;
     private BufferedReader bufferedReader;
+    private LocalizatorService localizatorService;
 
-    public IOServiceImpl(@Qualifier("messageSource") MessageSource messageSource) {
+    public IOServiceImpl(MessageSource messageSource) {
         this.messageSource = messageSource;
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         locale = Locale.getDefault();

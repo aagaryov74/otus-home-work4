@@ -7,4 +7,5 @@ public interface LocalizatorService {
    String getLanguage();
    String getCSVFile();
    Locale getLocale();
+   String getMessage(String messageType);
 }

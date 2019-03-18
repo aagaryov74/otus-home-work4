@@ -72,6 +72,11 @@ public class LocalizatorServiceImpl implements LocalizatorService {
         return null;
     }
 
+    @Override
+    public String getMessage(String messageType) {
+        return null;
+    }
+
     private Boolean isLangOk(String language) {
         try {
             Yaml yaml = new Yaml();
