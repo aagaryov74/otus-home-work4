@@ -6,3 +6,8 @@ config:
 spring:
   profiles:
     active: default
+
+
+logging:
+  level:
+    root: OFF

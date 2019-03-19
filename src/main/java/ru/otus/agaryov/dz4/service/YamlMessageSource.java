@@ -25,8 +25,8 @@ public class YamlMessageSource {
         ReloadableResourceBundleMessageSource ms
                 = new ReloadableResourceBundleMessageSource();
         ms.setCommonMessages(yamlProperties());
-        ms.setBasename("messages");
         ms.setDefaultEncoding("UTF-8");
         return ms;
     }
+
 }
