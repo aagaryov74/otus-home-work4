@@ -17,7 +17,7 @@ public class IOServiceImpl implements  IOService {
     private Locale locale;
     private BufferedReader bufferedReader;
 
-    public IOServiceImpl(@Qualifier("yamlMessageSource") MessageSource messageSource) {
+    public IOServiceImpl(YamlMessageSource messageSource) {
         this.messageSource = messageSource;
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         locale = Locale.getDefault();
@@ -40,22 +40,8 @@ public class IOServiceImpl implements  IOService {
     }
 
     @Override
-    public String getLocaleLang() {
-        return locale.getLanguage();
-    }
-
-    @Override
     public void setLocale(Locale locale) {
         this.locale = locale;
     }
 
-    @Override
-    public String getLanguage(String prompt) throws IOException {
-        String lang;
-        do {
-            printToConsole(prompt);
-            lang = readFromConsole();
-        } while (!lang.matches("^[a-zA-z]{2}$"));
-        return lang;
-    }
 }

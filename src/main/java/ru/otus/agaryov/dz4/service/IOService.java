@@ -8,8 +8,6 @@ public interface IOService {
     void printToConsole(String propertyParam);
     void printFToConsole(String propertyParam, Object ... args);
     String readFromConsole() throws IOException;
-    String getLocaleLang();
     void setLocale(Locale locale);
-    String getLanguage(String prompt) throws IOException;
 
 }

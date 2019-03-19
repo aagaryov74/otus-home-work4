@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.context.MessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,6 +16,7 @@ import ru.otus.agaryov.dz4.results.ResultCheckerImpl;
 import ru.otus.agaryov.dz4.service.AsciiCheckerServiceImpl;
 import ru.otus.agaryov.dz4.service.IOServiceImpl;
 import ru.otus.agaryov.dz4.service.LocalizatorServiceImpl;
+import ru.otus.agaryov.dz4.service.YamlMessageSource;
 
 import java.util.Locale;
 import java.util.Map;
@@ -44,6 +46,9 @@ class dzTest {
     private LocalizatorServiceImpl localizatorService;
 
     @SpyBean
+    private YamlMessageSource yMessageSource;
+
+    @SpyBean
     private IOServiceImpl ioService;
 
     @SpyBean
@@ -56,11 +61,13 @@ class dzTest {
         assertTrue(asciiCheckerService.isASCII("this is ascii only"));
     }
 
-    @DisplayName("Проверяем что при переключении на несуществующие консоли не бросаются исключения")
+    @DisplayName("Проверяем Класс-локализатор при переключении на несуществующие консоли не бросаются исключения")
     @Test
     void testThatLocalizatorDoentThowExcentions() {
         assertThatCode(() -> localizatorService.setLanguage("yy")).doesNotThrowAnyException();
+        assertThatCode(() ->localizatorService.setLanguage("ru")).doesNotThrowAnyException();
     }
+
 
     @DisplayName("Проверяем что csvFileReader не бросает исключений при несуществующих файлах")
     @Test

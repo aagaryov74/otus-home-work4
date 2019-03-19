@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="871156e9-6a84-4dc4-8a6e-be790ba45937" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_ru.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/YamlMessageSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/YamlMessageSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,15 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/messages.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/Main.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+            <state relative-caret-position="273">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,8 +52,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/YamlMessageSource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="377">
               <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="67" column="93" selection-start-line="67" selection-start-column="93" selection-end-line="67" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,8 +94,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
-              <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+            <state relative-caret-position="110">
+              <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/Config.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-173">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,6 +144,7 @@
       <find>iowarn</find>
       <find>setcsvFile</find>
       <find>quizProperties</find>
+      <find>System.out</find>
     </findStrings>
     <replaceStrings>
       <replace>dz3</replace>
@@ -181,7 +189,6 @@
         <option value="$PROJECT_DIR$/QuestionsAndAnswers_ru.csv" />
         <option value="$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/Config.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/exam/ExamExecutor.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/results/ResultCheckerImpl.java" />
@@ -199,6 +206,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java" />
       </list>
     </option>
   </component>
@@ -327,7 +335,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553004168234" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553012758302" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -365,7 +373,7 @@
     </option>
     <option name="contentProportion" value="0.21446384" />
   </component>
-  <component name="RunManager" selected="Spring Boot.SpringBoot">
+  <component name="RunManager" selected="JUnit.dz4Test">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -406,40 +414,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dz4Test.checkConfigMaps" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="dz4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.otus.agaryov.dz3.csvfilereader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.otus.agaryov.dz4.csvfilereader" />
-      <option name="MAIN_CLASS_NAME" value="ru.otus.agaryov.dz4.csvfilereader.dzTest" />
-      <option name="METHOD_NAME" value="testConfigMaps" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="dz4Test.testContext" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="dz4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.otus.agaryov.dz3.csvfilereader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.otus.agaryov.dz4.csvfilereader" />
-      <option name="MAIN_CLASS_NAME" value="ru.otus.agaryov.dz4.csvfilereader.dzTest" />
-      <option name="METHOD_NAME" value="testContext" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SpringBoot" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="dz4" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.otus.agaryov.dz4.Main" />
@@ -450,15 +424,11 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.dz4Test" />
-      <item itemvalue="JUnit.dz4Test.checkConfigMaps" />
-      <item itemvalue="JUnit.dz4Test.testContext" />
       <item itemvalue="Spring Boot.SpringBoot" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.dz4Test" />
-        <item itemvalue="JUnit.dz4Test.checkConfigMaps" />
-        <item itemvalue="JUnit.dz4Test.testContext" />
       </list>
     </recent_temporary>
   </component>
@@ -495,7 +465,7 @@
       <workItem from="1552754543043" duration="15483000" />
       <workItem from="1552849604272" duration="4264000" />
       <workItem from="1552923707699" duration="13181000" />
-      <workItem from="1553000401569" duration="2523000" />
+      <workItem from="1553000401569" duration="5599000" />
     </task>
     <task id="LOCAL-00001" summary="remove pom.xml to start using Spring Boot Initializr">
       <created>1552147493266</created>
@@ -602,48 +572,56 @@
       <option name="project" value="LOCAL" />
       <updated>1552991616982</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Александр Оруджев17.03.2019 в 21:55&#10;Ну да. Почти то что я и имел в виду. Туда бы еще работу с MessageSource вынести и то что получилось использовать в IOService. Сам MessageSource можно завернуть в YamlMessageSource. Давайте тогда эту работу я принимаю. Если захотите еще поправить то можно написать сюда или поправить в следующей работе. Только напишите тогда там об том что исправили замечания из прошлого ДЗ.&#10;17.03.2019 в 21:55 Александр Оруджев принял ДЗ&#10;Алексей Агарёв17.03.2019 в 21:58&#10;Спасибо! Я тогда в дз на shell это доделаю">
+      <created>1553004644307</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1553004644307</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="dz4Test - 2019.03.16 at 22h 49m 25s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 17h 44m 10s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 22h 50m 29s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 17h 48m 14s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 22h 57m 41s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 17h 50m 27s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 22h 58m 16s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 18h 57m 52s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 23h 00m 00s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 18h 58m 43s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 23h 00m 25s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 19h 04m 33s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 23h 00m 53s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 19h 11m 06s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 23h 01m 04s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 19h 20m 51s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.16 at 23h 05m 30s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 19h 22m 26s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="dz4Test - 2019.03.17 at 19h 27m 54s.xml">
+    <history-entry file="dz4Test - 2019.03.19 at 19h 23m 57s.xml">
       <configuration name="dz4Test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79064000" />
+    <option name="totallyTimeSpent" value="82140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="30" y="23" width="1410" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28289473" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28289473" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -652,7 +630,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32939634" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33581164" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2480315" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -664,7 +642,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.54593176" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32939634" />
-      <window_info anchor="bottom" id="Run Dashboard" order="14" visible="true" weight="0.5" />
+      <window_info anchor="bottom" id="Run Dashboard" order="14" weight="0.511811" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -738,7 +716,8 @@
     <MESSAGE value="refactoring CsvFileReader because Localizator" />
     <MESSAGE value="refactoring - creating YamlMessagesSource" />
     <MESSAGE value="change banner and settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="change banner and settings" />
+    <MESSAGE value="Александр Оруджев17.03.2019 в 21:55&#10;Ну да. Почти то что я и имел в виду. Туда бы еще работу с MessageSource вынести и то что получилось использовать в IOService. Сам MessageSource можно завернуть в YamlMessageSource. Давайте тогда эту работу я принимаю. Если захотите еще поправить то можно написать сюда или поправить в следующей работе. Только напишите тогда там об том что исправили замечания из прошлого ДЗ.&#10;17.03.2019 в 21:55 Александр Оруджев принял ДЗ&#10;Алексей Агарёв17.03.2019 в 21:58&#10;Спасибо! Я тогда в дз на shell это доделаю" />
+    <option name="LAST_COMMIT_MESSAGE" value="Александр Оруджев17.03.2019 в 21:55&#10;Ну да. Почти то что я и имел в виду. Туда бы еще работу с MessageSource вынести и то что получилось использовать в IOService. Сам MessageSource можно завернуть в YamlMessageSource. Давайте тогда эту работу я принимаю. Если захотите еще поправить то можно написать сюда или поправить в следующей работе. Только напишите тогда там об том что исправили замечания из прошлого ДЗ.&#10;17.03.2019 в 21:55 Александр Оруджев принял ДЗ&#10;Алексей Агарёв17.03.2019 в 21:58&#10;Спасибо! Я тогда в дз на shell это доделаю" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -804,27 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -984,16 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/YamlMessageSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -1001,10 +953,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/YamlMessageSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/LocalizatorServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+        <state relative-caret-position="110">
+          <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1013,8 +985,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+        <state relative-caret-position="273">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/otus/agaryov/dz4/csvfilereader/dzTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="67" column="93" selection-start-line="67" selection-start-column="93" selection-end-line="67" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
