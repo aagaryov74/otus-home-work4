@@ -16,9 +16,8 @@ public class IOServiceImpl implements  IOService {
     private final MessageSource messageSource;
     private Locale locale;
     private BufferedReader bufferedReader;
-    private LocalizatorService localizatorService;
 
-    public IOServiceImpl(MessageSource messageSource) {
+    public IOServiceImpl(@Qualifier("yamlMessageSource") MessageSource messageSource) {
         this.messageSource = messageSource;
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         locale = Locale.getDefault();
@@ -26,24 +25,18 @@ public class IOServiceImpl implements  IOService {
 
     @Override
     public void printToConsole(String propertyParam) {
-        out.println(messageSource.getMessage(locale.getLanguage() +
-                "." + propertyParam, null, locale));
+        out.println(messageSource.getMessage(propertyParam, null, locale));
 
     }
 
     @Override
     public void printFToConsole(String propertyParam, Object... args) {
-        out.printf(messageSource.getMessage(locale.getLanguage() +
-                "." + propertyParam, null, locale), args);
+        out.printf(messageSource.getMessage(propertyParam, null, locale), args);
     }
 
     @Override
     public String readFromConsole() throws IOException {
         return bufferedReader.readLine();
-    }
-
-    public String getMessage(String propertyParam) {
-        return messageSource.getMessage(propertyParam, null, locale);
     }
 
     @Override

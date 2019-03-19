@@ -2,30 +2,28 @@ package ru.otus.agaryov.dz4.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.Yaml;
 import ru.otus.agaryov.dz4.csvfilereader.CsvFileReader;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.Locale;
-import java.util.Map;
 
 @Service
 public class LocalizatorServiceImpl implements LocalizatorService {
     private final String csvFile;
-
-    @Value("${config.messages}")
-    private String messagesFile;
-
     private final IOService ioService;
     private final CsvFileReader csvFileReader;
+    private final YamlMessageSource messageSource;
+    @Value("${config.messages}")
+    private String messagesFile;
     private String language;
 
     public LocalizatorServiceImpl(@Value("${config.csvfile}") String csvFile,
-                                  IOService ioService, CsvFileReader csvFileReader) {
+                                  IOService ioService, CsvFileReader csvFileReader,
+                                  YamlMessageSource messageSource) {
         this.csvFile = csvFile;
         this.ioService = ioService;
         this.csvFileReader = csvFileReader;
+        this.messageSource = messageSource;
         this.language = Locale.getDefault().getLanguage();
     }
 
@@ -35,14 +33,10 @@ public class LocalizatorServiceImpl implements LocalizatorService {
             this.language = language;
             ioService.setLocale(getLocale());
             csvFileReader.setCsvFile(getCSVFile());
+            messageSource.setMessageSourceByLang(language);
             return true;
         }
         return false;
-    }
-
-    @Override
-    public String getLanguage() {
-        return this.language;
     }
 
     @Override
@@ -67,37 +61,24 @@ public class LocalizatorServiceImpl implements LocalizatorService {
                 return locale;
             }
         } catch (Exception e) {
-            System.err.println("Cannot set locale to "+ this.language);
+            System.err.println("Cannot set locale to " + this.language);
         }
-        return null;
-    }
-
-    @Override
-    public String getMessage(String messageType) {
         return null;
     }
 
     private Boolean isLangOk(String language) {
         try {
-            Yaml yaml = new Yaml();
-            InputStream inputStream = this.getClass()
-                    .getClassLoader()
-                    .getResourceAsStream(messagesFile);
-            Map<String, Map<String, String>> maps = yaml.load(inputStream);
-            if (maps.get(language.toLowerCase()).size() > 0) {
-                File qFile = new File(csvFile + "_" + language + ".csv");
-                if (qFile.canRead()) {
-                    Locale locale = new Locale.Builder().
-                            setLanguage(language.toLowerCase()).
-                            setRegion(language.toUpperCase()).build();
-                    if (locale != null) {
-                        return true;
-                    }
-                } else {
-                    System.err.println("There are no csv file with questions with this Language");
+            messageSource.setMessageSourceByLang(language);
+            File qFile = new File(csvFile + "_" + language + ".csv");
+            if (qFile.canRead()) {
+                Locale locale = new Locale.Builder().
+                        setLanguage(language.toLowerCase()).
+                        setRegion(language.toUpperCase()).build();
+                if (locale != null) {
+                    return true;
                 }
             } else {
-                System.err.println("There are no messages with this Language in config file");
+                System.err.println("There are no csv file with questions with this Language");
             }
         } catch (Exception e) {
             System.err.println("exception was at messages reading");

@@ -1,7 +1,7 @@
 #CSV conf file
 config:
   csvfile: QuestionsAndAnswers
-  messages: messages.yaml
+  messages: messages
 
 spring:
   profiles:
@@ -11,3 +11,4 @@ spring:
 logging:
   level:
     root: OFF
+
