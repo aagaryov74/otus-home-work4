@@ -1,143 +1,135 @@
 package ru.otus.agaryov.dz4.csvfilereader;
 
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.otus.agaryov.dz4.exam.ExamExecutor;
-import ru.otus.agaryov.dz4.results.ImplResultChecker;
-import ru.otus.agaryov.dz4.results.ResultChecker;
-import ru.otus.agaryov.dz4.service.AsciiCheckerService;
+import ru.otus.agaryov.dz4.results.ResultCheckerImpl;
+import ru.otus.agaryov.dz4.service.AsciiCheckerServiceImpl;
+import ru.otus.agaryov.dz4.service.IOServiceImpl;
+import ru.otus.agaryov.dz4.service.LocalizatorServiceImpl;
+import ru.otus.agaryov.dz4.service.YamlMessageSource;
 
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+
+@DisplayName("Тесты классов программы тестирования студентов")
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@EnableConfigurationProperties
 @ContextConfiguration(classes = Config.class)
 @TestPropertySource(locations = "/test.yaml")
-public class dzTest {
-
-    @Qualifier("AsciiChecker")
-    @Autowired
-    private AsciiCheckerService testAsciiChecker;
-
-    @Qualifier("ruCSVFileReader")
-    @Autowired
-    private CsvFileReader ruReader;
-
-    @Qualifier("ruCSVFileReader")
-    @Autowired
-    private CsvFileReader enReader;
+class dzTest {
 
     @Autowired
     Config.MapConfig mapConfig;
-    @Autowired
-    private ApplicationContext applicationContext;
-/*
-    @Autowired
-    private ResultChecker resultChecker;
 
-    @Autowired
-    private ExamExecutor examExecutor;
-*/
+    @SpyBean
+    private AsciiCheckerServiceImpl asciiCheckerService;
+
+    @SpyBean
+    private CsvFileReaderImpl csvFileReader;
+
+    @SpyBean
+    private LocalizatorServiceImpl localizatorService;
+
+    @SpyBean
+    private YamlMessageSource yMessageSource;
+
+    @SpyBean
+    private IOServiceImpl ioService;
+
+    @SpyBean
+    private ResultCheckerImpl resultChecker;
+
+    @DisplayName("Тестируем asciiChecker")
     @Test
-    public void testContext() {
-        Assert.assertNotNull(applicationContext.getBean("ruCSVFileReader"));
-        Assert.assertNotNull(applicationContext.getBean("enCSVFileReader"));
-        Assert.assertNotNull(applicationContext.getBean(Config.MapConfig.class));
+    void testAsciiCheckerService() {
+        assertFalse(asciiCheckerService.isASCII("Привет"));
+        assertTrue(asciiCheckerService.isASCII("this is ascii only"));
     }
 
+    @DisplayName("Проверяем Класс-локализатор при переключении на несуществующие консоли не бросаются исключения")
     @Test
-    public void testAscii() {
-        Assert.assertFalse(testAsciiChecker.isASCII("Привет"));
-        Assert.assertTrue(testAsciiChecker.isASCII("this is ascii only"));
+    void testThatLocalizatorDoentThowExcentions() {
+        assertThatCode(() -> localizatorService.setLanguage("yy")).doesNotThrowAnyException();
+        assertThatCode(() -> localizatorService.setLanguage("ru")).doesNotThrowAnyException();
+    }
+
+
+    @DisplayName("Проверяем что csvFileReader не бросает исключений при несуществующих файлах")
+    @Test
+    void testThatCsvFileReader() {
+        assertThatCode(() -> csvFileReader.setCsvFile("unexisted file")).doesNotThrowAnyException();
+    }
+
+    @DisplayName("Проверяем что в тестовом файле testquestions.yaml с вопросами есть по 3 вопроса на англ и русском")
+    @Test
+    void testConfigMaps() {
+        assertNotNull(mapConfig.getLanguages());
+        assertNotNull(mapConfig.getMapByLang("ru"));
+        assertNotNull(mapConfig.getMapByLang("en"));
+        assertEquals(mapConfig.getMapByLang("ru").size(), 3);
+        assertEquals(mapConfig.getMapByLang("en").size(), 3);
+    }
+
+
+    @DisplayName("Проверяем что класс - читатель из csv файла читает по 5 вопросов из них на русском и английском")
+    @Test
+    void checkQuestions() {
+        csvFileReader.setCsvFile(localizatorService.getCSVFile());
+
+
+        Map<String, String> ruQuiz = csvFileReader.readCsvIntoMap();
+        assertNotNull(ruQuiz);
+
+        assertEquals(5, (int) csvFileReader.getReadedStrsCount());
+
+        csvFileReader.setCsvFile(localizatorService.getCSVFile());
+
+        Map<String, String> enQuiz = csvFileReader.readCsvIntoMap();
+
+        assertNotNull(enQuiz);
+
+        assertEquals(5, (int) csvFileReader.getReadedStrsCount());
 
     }
 
+    @DisplayName("Тест Класса ResultChecker с подкладкой из вопросов из тестового testquestions.yaml")
     @Test
-    public void testConfigMaps() {
-        Assert.assertNotNull(mapConfig.getLanguages());
-        Assert.assertNotNull(mapConfig.getMapByLang("ru"));
-        Assert.assertNotNull(mapConfig.getMapByLang("en"));
-        Assert.assertEquals(mapConfig.getMapByLang("ru").size(), 3);
-        Assert.assertEquals(mapConfig.getMapByLang("en").size(), 3);
+    void testResultChecker() {
 
-    }
-
-    @Test
-    public void checkQuestions() {
-        Map<String, String> ruQuiz = ruReader.readCsvIntoMap();
-
-        Assert.assertNotNull(ruQuiz);
-
-        Assert.assertEquals("There are must be 5 records in ru questions file",
-                5, (long) ruReader.getReadedStrsCount());
-
-        Map<String, String> enQuiz = enReader.readCsvIntoMap();
-
-        Assert.assertNotNull(enQuiz);
-
-        Assert.assertEquals("There are must be 5 records in en questions file",
-                5, (long) enReader.getReadedStrsCount());
-
-    }
-
-    @Test
-    public void testSpyQuiz() {
-
-        // Ответопроверятель
-        ResultChecker resChecker;
-        // Прокладка
-        ResultChecker sChecker;
-
-        for (String lang: mapConfig.getLanguages()) {
-            CsvFileReader reader =
-                    mock(ImplCsvFileReader.class);
-            // Не написали еще чтение из файла в мапу, но уже хотим проверить, как ответопроверятель работает
-            when(reader.readCsvIntoMap()).thenReturn(mapConfig.getMapByLang(lang));
-            when(reader.getReadedStrsCount()).thenReturn(mapConfig.getMapByLang(lang).size());
-            resChecker = new ImplResultChecker(reader);
-            sChecker = Mockito.spy(resChecker);
+        for (String lang : mapConfig.getLanguages()) {
+            resultChecker.setMap(mapConfig.getMapByLang(lang));
 
             for (String question : mapConfig.getMapByLang(lang).keySet()
             ) {
-                sChecker.checkAnswer(question, mapConfig.getMapByLang(lang).get(question));
-//                System.out.println("q = "+ question + " a = " +
-//                        mapConfig.getMapByLang(lang).get(question) +
-//                        " counter in checker " + sChecker.getResult());
+                resultChecker.checkAnswer(question, mapConfig.getMapByLang(lang).get(question));
             }
-            Assert.assertNotNull(sChecker);
-
-            int res = sChecker.getResult();
-
-            Assert.assertEquals(3, res);
-
-            if(lang.contentEquals("en")) {
-                verify(sChecker, times(1)).
+            assertEquals(3, (int) resultChecker.getResult());
+            if (lang.contentEquals("en")) {
+                verify(resultChecker, times(1)).
                         checkAnswer("How many legs does elephant have", "4");
             }
             if (lang.contentEquals("ru")) {
-                verify(sChecker, times(1)).
+                verify(resultChecker, times(1)).
                         checkAnswer("Сколько ног у слона", "4");
             }
-            verify(sChecker, never()).
+            verify(resultChecker, never()).
                     checkAnswer("Сколько деревьев в саду", "21");
 
-            int qCount = sChecker.getQuestions().length;
+            int qCount = resultChecker.getQuestions().length;
 
-            Assert.assertEquals(3, qCount);
+            assertEquals(3, qCount);
 
         }
 

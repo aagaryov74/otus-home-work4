@@ -1,19 +1,18 @@
 package ru.otus.agaryov.dz4.results;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.otus.agaryov.dz4.csvfilereader.CsvFileReader;
 
 import java.util.Map;
 
 @Component
-public class ImplResultChecker implements ResultChecker {
+public class ResultCheckerImpl implements ResultChecker {
     private Integer result;
     private Map<String, String> qaMap;
 
     @Autowired
-    public ImplResultChecker(@Qualifier("implCsvFileReader") CsvFileReader csvFileReader){
+    public ResultCheckerImpl(CsvFileReader csvFileReader) {
         this.result = 0;
         if (csvFileReader != null) this.qaMap = csvFileReader.readCsvIntoMap();
     }
@@ -39,6 +38,7 @@ public class ImplResultChecker implements ResultChecker {
 
     @Override
     public void setMap(Map<String, String> aMap) {
+        result = 0;
         this.qaMap = aMap;
     }
 }

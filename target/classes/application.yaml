@@ -1,7 +1,14 @@
 #CSV conf file
 config:
   csvfile: QuestionsAndAnswers
+  messages: messages
 
 spring:
   profiles:
     active: default
+
+
+logging:
+  level:
+    root: OFF
+

@@ -5,10 +5,10 @@ import java.io.IOException;
 public interface IOService {
 
     void printToConsole(String propertyParam);
-    void printFToConsole(String propertyParam, Object ... args);
-    String readFromConsole() throws IOException;
-    String getLocaleLang();
-    void setLocaleLang(String language);
-    String getLanguage(String prompt) throws IOException;
 
+    void printFToConsole(String propertyParam, Object... args);
+
+    String printSToConsole(String propertyParam, Object... args);
+
+    String readFromConsole() throws IOException;
 }
