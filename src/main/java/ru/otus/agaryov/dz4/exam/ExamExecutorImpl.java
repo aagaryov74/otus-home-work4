@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.NonNull;
+import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellMethodAvailability;
 import org.springframework.shell.standard.ShellOption;
 import ru.otus.agaryov.dz4.csvfilereader.CsvFileReader;
 import ru.otus.agaryov.dz4.results.ResultChecker;
@@ -22,6 +24,7 @@ public class ExamExecutorImpl implements ExamExecutor {
     private final IOService ioService;
     private final LocalizatorService localizatorService;
     private String userName;
+    private boolean isGreetingDone;
 
     @NonNull
     @Value("${config.csvfile}")
@@ -52,9 +55,15 @@ public class ExamExecutorImpl implements ExamExecutor {
         }
     }
 
+    public Availability examAvailability() {
+        return (this.userName != null) ? Availability.available()
+                : Availability.unavailable(ioService.printSToConsole("sayhellofirst"));
+    }
+
+
+    @ShellMethodAvailability(value = "examAvailability")
     @ShellMethod("Starting Quiz with simple questions")
     private void doexam() {
-        if (this.userName != null) {
             try {
                 resultChecker.setMap(csvFileReader.readCsvIntoMap());
                 if (resultChecker.getQuestions() != null) {
@@ -76,9 +85,6 @@ public class ExamExecutorImpl implements ExamExecutor {
             } catch (IOException e) {
                 ioService.printToConsole("ioWarning");
             }
-        } else {
-            ioService.printToConsole("sayhellofirst");
-        }
     }
 
     @Override

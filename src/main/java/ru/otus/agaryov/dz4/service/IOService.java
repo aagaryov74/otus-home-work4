@@ -8,5 +8,7 @@ public interface IOService {
 
     void printFToConsole(String propertyParam, Object... args);
 
+    String printSToConsole(String propertyParam, Object... args);
+
     String readFromConsole() throws IOException;
 }

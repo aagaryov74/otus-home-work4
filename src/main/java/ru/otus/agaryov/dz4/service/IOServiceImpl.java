@@ -30,6 +30,11 @@ public class IOServiceImpl implements IOService {
     }
 
     @Override
+    public String printSToConsole(String propertyParam, Object... args) {
+        return String.format(messageSource.getMessage(propertyParam), args);
+    }
+
+    @Override
     public String readFromConsole() throws IOException {
         return bufferedReader.readLine();
     }
