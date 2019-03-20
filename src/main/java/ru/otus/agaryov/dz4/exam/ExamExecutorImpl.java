@@ -18,7 +18,7 @@ import ru.otus.agaryov.dz4.service.LocalizatorService;
 import java.io.IOException;
 
 @ShellComponent
-public class ExamExecutorImpl implements ExamExecutor {
+public class ExamExecutorImpl {
     private final CsvFileReader csvFileReader;
     private final ResultChecker resultChecker;
     private final IOService ioService;
@@ -85,10 +85,5 @@ public class ExamExecutorImpl implements ExamExecutor {
             } catch (IOException e) {
                 ioService.printToConsole("ioWarning");
             }
-    }
-
-    @Override
-    public void doExam() {
-        doexam();
     }
 }

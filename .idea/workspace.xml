@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="871156e9-6a84-4dc4-8a6e-be790ba45937" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/exam/ExamExecutorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/exam/ExamExecutorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/service/IOServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/exam/ExamExecutorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="276">
+              <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3368#3369#0" expanded="true" />
@@ -209,7 +206,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="30" />
     <option name="y" value="23" />
     <option name="width" value="1410" />
@@ -334,7 +331,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553068477774" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553108611987" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -465,7 +462,7 @@
       <workItem from="1552849604272" duration="4264000" />
       <workItem from="1552923707699" duration="13181000" />
       <workItem from="1553000401569" duration="5892000" />
-      <workItem from="1553064290858" duration="3426000" />
+      <workItem from="1553064290858" duration="3949000" />
     </task>
     <task id="LOCAL-00001" summary="remove pom.xml to start using Spring Boot Initializr">
       <created>1552147493266</created>
@@ -593,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553066118669</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="stvort 10 hours ago&#10;Порядок команд лучше обеспечить с помощью @ShellMethodAvailability">
+      <created>1553068534502</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1553068534502</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -629,11 +633,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85859000" />
+    <option name="totallyTimeSpent" value="86382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2825465" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -733,7 +736,8 @@
     <MESSAGE value="Александр Оруджев17.03.2019 в 21:55&#10;Ну да. Почти то что я и имел в виду. Туда бы еще работу с MessageSource вынести и то что получилось использовать в IOService. Сам MessageSource можно завернуть в YamlMessageSource. Давайте тогда эту работу я принимаю. Если захотите еще поправить то можно написать сюда или поправить в следующей работе. Только напишите тогда там об том что исправили замечания из прошлого ДЗ.&#10;17.03.2019 в 21:55 Александр Оруджев принял ДЗ&#10;Алексей Агарёв17.03.2019 в 21:58&#10;Спасибо! Я тогда в дз на shell это доделаю" />
     <MESSAGE value="fix tests and delete unused methods" />
     <MESSAGE value="stvort 10 hours ago&#10;Зачем IOServiceImpl своя локаль если он ее использует для вызова getMessage YamlMessageSource, у которой тоже есть своя локаль? Давайте оставим только в YamlMessageSource. Заодно getMessage сократим" />
-    <option name="LAST_COMMIT_MESSAGE" value="stvort 10 hours ago&#10;Зачем IOServiceImpl своя локаль если он ее использует для вызова getMessage YamlMessageSource, у которой тоже есть своя локаль? Давайте оставим только в YamlMessageSource. Заодно getMessage сократим" />
+    <MESSAGE value="stvort 10 hours ago&#10;Порядок команд лучше обеспечить с помощью @ShellMethodAvailability" />
+    <option name="LAST_COMMIT_MESSAGE" value="stvort 10 hours ago&#10;Порядок команд лучше обеспечить с помощью @ShellMethodAvailability" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/messages_ru_RU.yaml" />
@@ -1008,8 +1012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/otus/agaryov/dz4/exam/ExamExecutorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="276">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3368#3369#0" expanded="true" />
