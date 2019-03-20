@@ -40,13 +40,13 @@ public class ExamExecutorImpl implements ExamExecutor {
     @ShellMethod("Enter hello with your name to start exam")
     public void hello(@ShellOption String username) {
         this.userName = username;
-        ioService.printFToConsole("welcome",userName);
+        ioService.printFToConsole("welcome", userName);
     }
 
     @ShellMethod("Enter your preferred console language like en or ru")
     public void lang(@ShellOption String language) {
         if (localizatorService.setLanguage(language)) {
-            ioService.printFToConsole("welcomeLocale",userName);
+            ioService.printFToConsole("welcomeLocale", userName);
         } else {
             ioService.printToConsole("wrongLang");
         }

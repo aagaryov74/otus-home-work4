@@ -28,10 +28,10 @@ public class CsvFileReaderImpl implements CsvFileReader {
     }
 
     @Override
-    public Map<String,String> readCsvIntoMap() {
+    public Map<String, String> readCsvIntoMap() {
         CSVReader reader;
-        this.readStrCounter=0;
-        Map<String,String> qaMap = new LinkedHashMap<>();
+        this.readStrCounter = 0;
+        Map<String, String> qaMap = new LinkedHashMap<>();
         try {
             reader = new CSVReader(new FileReader(this.csvFile));
             String[] line;

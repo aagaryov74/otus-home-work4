@@ -1,7 +1,6 @@
 package ru.otus.agaryov.dz4.results;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.otus.agaryov.dz4.csvfilereader.CsvFileReader;
 
@@ -13,7 +12,7 @@ public class ResultCheckerImpl implements ResultChecker {
     private Map<String, String> qaMap;
 
     @Autowired
-    public ResultCheckerImpl(CsvFileReader csvFileReader){
+    public ResultCheckerImpl(CsvFileReader csvFileReader) {
         this.result = 0;
         if (csvFileReader != null) this.qaMap = csvFileReader.readCsvIntoMap();
     }

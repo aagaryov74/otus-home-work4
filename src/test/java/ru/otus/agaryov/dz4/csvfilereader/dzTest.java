@@ -1,14 +1,12 @@
 package ru.otus.agaryov.dz4.csvfilereader;
 
 
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
-import org.springframework.context.MessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -18,7 +16,6 @@ import ru.otus.agaryov.dz4.service.IOServiceImpl;
 import ru.otus.agaryov.dz4.service.LocalizatorServiceImpl;
 import ru.otus.agaryov.dz4.service.YamlMessageSource;
 
-import java.util.Locale;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -65,7 +62,7 @@ class dzTest {
     @Test
     void testThatLocalizatorDoentThowExcentions() {
         assertThatCode(() -> localizatorService.setLanguage("yy")).doesNotThrowAnyException();
-        assertThatCode(() ->localizatorService.setLanguage("ru")).doesNotThrowAnyException();
+        assertThatCode(() -> localizatorService.setLanguage("ru")).doesNotThrowAnyException();
     }
 
 

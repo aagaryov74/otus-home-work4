@@ -31,7 +31,6 @@ public class LocalizatorServiceImpl implements LocalizatorService {
     public Boolean setLanguage(String language) {
         if (isLangOk(language)) {
             this.language = language;
-            ioService.setLocale(getLocale());
             csvFileReader.setCsvFile(getCSVFile());
             messageSource.setMessageSourceByLang(language);
             return true;

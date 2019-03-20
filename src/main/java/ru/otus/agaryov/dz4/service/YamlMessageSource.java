@@ -1,4 +1,5 @@
 package ru.otus.agaryov.dz4.service;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.MessageSource;
@@ -14,34 +15,40 @@ import java.util.Properties;
 @Service
 public class YamlMessageSource implements MessageSource {
 
+    private final String messagesFile;
     private Properties yamlProperties;
     private MessageSource messageSource;
-
-    private final String messagesFile;
+    private Locale locale;
 
     public YamlMessageSource(@Value("${config.messages}") String messagesFile) {
         this.messagesFile = messagesFile;
-        String language = Locale.getDefault().getLanguage();
+        this.locale = Locale.getDefault();
+        String language = locale.getLanguage();
         setMessageSourceByLang(language);
     }
 
     @Override
     public String getMessage(String s, Object[] objects, String s1, Locale locale) {
-        return messageSource.getMessage(s, objects, s1, locale);
+        return messageSource.getMessage(s, objects, s1, this.locale);
     }
 
     @Override
     public String getMessage(String s, Object[] objects, Locale locale) throws NoSuchMessageException {
-        return messageSource.getMessage(s, objects, locale);
+        return messageSource.getMessage(s, objects, this.locale);
     }
 
     @Override
     public String getMessage(MessageSourceResolvable messageSourceResolvable, Locale locale) throws NoSuchMessageException {
-        return messageSource.getMessage(messageSourceResolvable, locale);
+        return messageSource.getMessage(messageSourceResolvable, this.locale);
     }
 
 
-    public void setMessageSourceByLang(String language) {
+    String getMessage(String s) throws NoSuchMessageException {
+        return messageSource.getMessage(s, null, this.locale);
+    }
+
+
+    void setMessageSourceByLang(String language) {
 
         String messagesYaml;
         if (language.toLowerCase().matches("^en$")) {
@@ -51,14 +58,19 @@ public class YamlMessageSource implements MessageSource {
             messagesYaml = messagesFile
                     + "_" + language + ".yaml";
         }
-            YamlPropertiesFactoryBean bean = new YamlPropertiesFactoryBean();
-            bean.setResources(new ClassPathResource(messagesYaml));
-            yamlProperties = bean.getObject();
-            ReloadableResourceBundleMessageSource ms
-                    = new ReloadableResourceBundleMessageSource();
-            ms.setCommonMessages(yamlProperties);
-            ms.setDefaultEncoding("UTF-8");
-            messageSource = ms;
+
+        locale = new Locale.Builder().
+                setLanguage(language.toLowerCase()).
+                setRegion(language.toUpperCase()).build();
+
+        YamlPropertiesFactoryBean bean = new YamlPropertiesFactoryBean();
+        bean.setResources(new ClassPathResource(messagesYaml));
+        yamlProperties = bean.getObject();
+        ReloadableResourceBundleMessageSource ms
+                = new ReloadableResourceBundleMessageSource();
+        ms.setCommonMessages(yamlProperties);
+        ms.setDefaultEncoding("UTF-8");
+        messageSource = ms;
     }
 
 
